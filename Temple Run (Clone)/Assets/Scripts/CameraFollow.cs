@@ -10,7 +10,8 @@ public class CameraFollow : MonoBehaviour
     {
         if(GameManager.isPlay)
         {
-            transform.eulerAngles = playerTransform.eulerAngles;
+
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, playerTransform.eulerAngles, 0.3f);
 
             if (playerTransform.eulerAngles.y < 2) // Düz yönde gidildiðinde çalýþýr
             {

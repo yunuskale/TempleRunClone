@@ -17,6 +17,7 @@ public class PlatformDesigner : MonoBehaviour
             {
                 GameObject obstacle = Instantiate(obstacles[o]);
                 obstacle.transform.position = new Vector3(spawnPositions[i+s].position.x, obstacle.transform.position.y, spawnPositions[i + s].position.z);
+                Destroy(obstacle, 30f);
             }
         }
     }

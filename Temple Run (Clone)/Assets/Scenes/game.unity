@@ -771,6 +771,7 @@ MonoBehaviour:
   - {fileID: 646585916726328028, guid: b60092065c5234047bbb28ef97ad7318, type: 3}
   - {fileID: 8221762937804430062, guid: 37804692d20504c4da3575627cf51cc2, type: 3}
   - {fileID: 4413021573480765299, guid: 27c176f49ca634e42bb37612e209be7f, type: 3}
+  onGround: 0
 --- !u!114 &755009123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +808,7 @@ CapsuleCollider:
   m_Radius: 0.35
   m_Height: 2.007678
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9492202, z: 0.69}
+  m_Center: {x: 0, y: 0.9492202, z: 0}
 --- !u!54 &755009125
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -60,6 +60,7 @@ public class Movement : MonoBehaviour
             }
 
             rb.position = location;
+
             if (rb.position.y < 1.7f)
             {
                 gameManager.GameOver();
@@ -71,10 +72,8 @@ public class Movement : MonoBehaviour
         if(Input.touchCount > 0 && GameManager.isPlay)
         {
             Touch finger = Input.GetTouch(0);
-            if(finger.deltaPosition.y > 20 && !jumped)
+            if(finger.deltaPosition.y > 20 && collisionControl.onGround)
             {
-                jumped = true;
-                Invoke(nameof(JumpedCancel), 1f);
                 anim.Play("Jump");
                 rb.AddForce(new Vector3(0f, jumpSpeed, 0f), ForceMode.Impulse);
             }
@@ -109,10 +108,8 @@ public class Movement : MonoBehaviour
         }
         //if(GameManager.isPlay)
         //{
-        //    if (Input.GetKeyDown(KeyCode.Space) && !jumped)
+        //    if (Input.GetKeyDown(KeyCode.Space) && collisionControl.onGround)
         //    {
-        //        jumped = true;
-        //        Invoke(nameof(JumpedCancel), 1f);
         //        anim.Play("Jump");
         //        rb.AddForce(new Vector3(0f, jumpSpeed, 0f), ForceMode.Impulse);
         //    }
@@ -149,7 +146,7 @@ public class Movement : MonoBehaviour
     public void Fall()
     {
         gameManager.GameOver();
-        GetComponent<CapsuleCollider>().center = new Vector3(0, 1.4f, 0.69f);
+        GetComponent<CapsuleCollider>().center = new Vector3(0, 1.6f, 0.69f);
         anim.Play("Fall");
         if (transform.eulerAngles.y < 2)
         {
@@ -171,10 +168,6 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.AddForce(new Vector3(300, 0, 0));
         }
-    }
-    private void JumpedCancel()
-    {
-        jumped = false;
     }
     private void TurnedCancel()
     {
